@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-5">
         <div class="upload-section">
-          <h2>Upload Achievement</h2>
+          <h2>Upload Achievement Image</h2>
           <form action="upload.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="title">Title:</label>
