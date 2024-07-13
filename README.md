@@ -111,7 +111,7 @@ This is a Content Management System (CMS) developed using PHP and MySQL. The sys
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the ABSAR License.
 
 ## Author
 
