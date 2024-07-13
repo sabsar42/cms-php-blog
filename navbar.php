@@ -7,34 +7,11 @@
     <title>Navbar with Background Image</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <style>
-        .navbar {
-            background-image: url('https://vi.wordpress.org/files/2018/09/20_motorboat.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            min-height: 100px;
-
-        }
-
-        .nav-link {
-            font-size: large;
-            font-weight: bold;
-            color: white !important;
-        }
-
-        .navbar-brand {
-            font-size: large;
-            font-weight: bold;
-            font-family: cursive;
-            color: white !important;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/navbar.css">s
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="index.php">ABSCMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

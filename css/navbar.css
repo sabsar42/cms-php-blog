@@ -1,11 +1,26 @@
+
 .navbar {
-    position: relative;
-    top: 0;
-    width: 100%;
+    background-image: url('https://vi.wordpress.org/files/2018/09/20_motorboat.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    min-height: 100px; 
-    padding-top: 15px; 
-    z-index: 1000;
+    background-position: center;
+    min-height: 90px;
+
 }
+
+.nav-link {
+    font-size: large;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar-brand {
+    font-size: large;
+    font-weight: bold;
+    font-family: cursive;
+    color: white !important;
+}
+body {
+    padding-top: 70px; 
+  }
+  
