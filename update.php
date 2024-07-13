@@ -2,21 +2,20 @@
 session_start();
 include 'db.php';
 
-// Redirect to login page if not logged in
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit;
 }
 
-// Initialize $row to avoid errors when first loading the page
+
 $row = [];
 
-// Handle GET request to fetch post data for update
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $sql = "SELECT * FROM post WHERE id=?";
     $stmt = $connect->prepare($sql);
-    $stmt->bind_param('i', $id); // 'i' indicates integer type for id
+    $stmt->bind_param('i', $id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -29,20 +28,22 @@ if (isset($_GET['id'])) {
     $stmt->close();
 }
 
-// Handle POST request to update post data
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    // Update the SQL query to use correct column names
+
     $sql = "UPDATE post SET title=?, content=? WHERE id=?";
     $stmt = $connect->prepare($sql);
-    $stmt->bind_param('ssi', $title, $content, $id); // 'ssi' indicates two strings and one integer parameters
+    $stmt->bind_param('ssi', $title, $content, $id);
     if ($stmt->execute()) {
-        echo "Post updated successfully.";
+        echo "<script>alert('Post Updated Succesfully')</script>";
+        echo "<script>location.href='index.php'</script>";
     } else {
-        echo "Error updating post: " . $stmt->error;
+        echo "<script>alert('Error')</script>";
+        echo "<script>location.href='update.php'</script>";
     }
     $stmt->close();
 }
@@ -53,11 +54,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Update Post</title>
+
+    <head>
+        <title>Create Post</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CMS Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="./css/update.css" rel="stylesheet">
+    </head>
 </head>
 
 <body>
     <h2>Update Post</h2>
-    <a href="index.php">Back to Dashboard</a>
+    <?php include('navbar.php'); ?>
+
     <br><br>
     <form method="post" action="update.php">
         <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">

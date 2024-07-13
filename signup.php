@@ -6,38 +6,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Hash the password for security (use password_hash() in production)
-    $hashed_password = md5($password); // Example: Use stronger hashing methods like password_hash() in production
 
-    // Insert into database
+    $hashed_password = md5($password);
+
+
     $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param('sss', $username, $email, $hashed_password); // 'sss' indicates three string parameters
     if ($stmt->execute()) {
-        echo "User registered successfully.";
+        echo "<script>alert('Registration Successfull')</script>";
+        echo "<script>location.href='login.php'</script>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<script>alert('Invalid username Or Password, Try Again!')</script>";
+        echo "<script>location.href='signup.php'</script>";
     }
     $stmt->close();
 }
 ?>
 
+
+
+<!-- html code  -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="./css/signup.css" rel="stylesheet">
 </head>
 
 <body>
-    <h2>User Registration</h2>
-    <form method="post" action="signup.php">
-        Username: <input type="text" name="username" required><br>
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
-        <input type="submit" value="Register">
-    </form>
-    <a href="login.php">Login</a>
+    <div class="bg-image">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="wrapper animated bounce">
+                <h2>Register</h2>
+                <hr>
+                <form method="post" action="signup.php" onsubmit="return validateForm()">
+                    <label for="username"><i class="fa fa-user"></i></label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+
+                    <label for="email"><i class="fa fa-envelope"></i></label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+
+                    <label for="password"><i class="fa fa-lock"></i></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+
+                    <input type="submit" value="Register">
+                    <hr>
+                    <div class="crtacc"><a href="login.php">Already have an account? Login here</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/validateForm.js"></script>
+
 </body>
 
 </html>

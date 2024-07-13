@@ -1,0 +1,7 @@
+body {
+    background-image: url('https://vi.wordpress.org/files/2018/09/20_motorboat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Adjust the height as needed */
+}

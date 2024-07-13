@@ -2,7 +2,6 @@
 session_start();
 include 'db.php';
 
-// Redirect to login page if not logged in
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit;
@@ -13,14 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $content = $_POST['content'];
     $author = $_SESSION['username'];
 
-    // Insert into database
+
     $sql = "INSERT INTO post (title, content, author, date, added) VALUES (?, ?, ?, NOW(),NOW())";
     $stmt = $connect->prepare($sql);
     $stmt->bind_param('sss', $title, $content, $author); // 'sss' indicates three string parameters
     if ($stmt->execute()) {
-        echo "Post added successfully.";
+        echo "<script>alert('Post added Succesfully')</script>";
+        echo "<script>location.href='index.php'</script>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<script>alert('Invalid input!')</script>";
+        echo "<script>location.href='create.php'</script>";
     }
     $stmt->close();
 }
@@ -31,11 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Create Post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="./css/create.css" rel="stylesheet">
 </head>
 
+
 <body>
+    <?php include('navbar.php'); ?>
     <h2>Create Post</h2>
-    <a href="index.php">Back to Dashboard</a>
+
     <br><br>
     <form method="post" action="create.php">
         Title: <input type="text" name="title" required><br>

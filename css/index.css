@@ -1,0 +1,62 @@
+  /* Custom styles */
+  body {
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.container {
+    max-width: 800px; /* Adjust max width as needed */
+}
+
+.btn-update {
+    background-color: #28a745; /* Updated update button color */
+    color: #fff; /* Text color */
+    border-color: #28a745; /* Border color */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Updated delete button color */
+    color: #fff; /* Text color */
+    border-color: #dc3545; /* Border color */
+}
+
+.post {
+    background-color: #fff; /* Post background color */
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.post h4 {
+    color: #343a40; /* Post title color */
+    margin-bottom: 10px;
+}
+
+.post p {
+    color: #6c757d; /* Post text color */
+    margin-bottom: 5px;
+}
+
+.post-actions {
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px;
+    }
+}
+.btn-create-post {
+    color: #000;
+    background-color: rgb(25, 71, 71); /* Aqua color for create post button */
+    color: #fff; /* Text color */
+    border-color: aqua; /* Border color */
+}
+
+.btn-logout {
+    background-color: #dc3545; /* Red color for logout button */
+    color: #fff; /* Text color */
+    border-color: #dc3545; /* Border color */
+}

@@ -1,0 +1,68 @@
+/* Custom CSS for contact-me.php */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-link {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-facebook {
+    background-color: #3b5998; /* Facebook blue */
+}
+
+.btn-linkedin {
+    background-color: #0077b5; /* LinkedIn blue */
+}
+
+.btn-github {
+    background-color: #333333; /* GitHub gray */
+}
+
+.btn-stopstalk {
+    background-color: #e79e91; /* StopStalk color */
+}
+
+.btn-codeforces {
+    background-color: #5f140f; /* Codeforces red */
+}
+
+.btn-facebook:hover, .btn-linkedin:hover, .btn-github:hover, .btn-stopstalk:hover, .btn-codeforces:hover {
+    opacity: 0.8;
+}
+
+.profile-box i {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.profile-box span {
+    text-align: center;
+}
