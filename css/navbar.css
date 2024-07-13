@@ -1,7 +1,11 @@
 .navbar {
+    position: relative;
+    top: 0;
+    width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100px; /* Adjust the height as needed */
-    padding-top: 15px; /* Adjust top padding to center content */
+    min-height: 100px; 
+    padding-top: 15px; 
+    z-index: 1000;
 }
